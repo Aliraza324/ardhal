@@ -17,6 +17,11 @@ import {
   brandGroups,
   getBrandLogo,
 } from "../data/brandImages";
+import {
+  dropdownVariants,
+  btnClick,
+  subtleHoverLift,
+} from "./animations/animations";
 
 export default function CategoryNav() {
   const [activeMenu, setActiveMenu] = useState(null); // 'brands' | 'categories' | null
@@ -114,10 +119,10 @@ export default function CategoryNav() {
   return (
     <div
       ref={navContainerRef}
-      className="relative z-50 bg-white border-b border-zinc-200 select-none font-sans"
+      className="relative z-20 bg-white border-b border-zinc-200 select-none font-sans"
     >
       {/* Horizontal Nav Bar */}
-      <div className="relative z-50 bg-white">
+      <div className="relative z-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
             {/* Main Category & Brand Links */}
@@ -280,12 +285,11 @@ export default function CategoryNav() {
         {activeMenu === "brands" && (
           <motion.div
             key="brands-mega-menu"
-            initial={{ opacity: 0, y: -10, scaleY: 0.98 }}
-            animate={{ opacity: 1, y: 0, scaleY: 1 }}
-            exit={{ opacity: 0, y: -8, scaleY: 0.98 }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            style={{ transformOrigin: "top" }}
-            className="absolute left-0 right-0 top-full bg-white border-b border-zinc-200 shadow-2xl z-50 max-h-[82vh] overflow-y-auto"
+            variants={dropdownVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="absolute left-0 right-0 top-full bg-white border-b border-zinc-200 shadow-2xl z-30 max-h-[82vh] overflow-y-auto"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
               <div className="grid grid-cols-12 gap-8">
@@ -472,12 +476,11 @@ export default function CategoryNav() {
         {activeMenu === "categories" && (
           <motion.div
             key="categories-mega-menu"
-            initial={{ opacity: 0, y: -10, scaleY: 0.98 }}
-            animate={{ opacity: 1, y: 0, scaleY: 1 }}
-            exit={{ opacity: 0, y: -8, scaleY: 0.98 }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            style={{ transformOrigin: "top" }}
-            className="absolute left-0 right-0 top-full bg-white border-b border-zinc-200 shadow-2xl z-50 max-h-[82vh] overflow-y-auto"
+            variants={dropdownVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="absolute left-0 right-0 top-full bg-white border-b border-zinc-200 shadow-2xl z-30 max-h-[82vh] overflow-y-auto"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
               <div className="flex items-center justify-between pb-4 border-b border-zinc-100">

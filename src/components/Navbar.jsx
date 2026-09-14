@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import CategoryNav from "./CategoryNav";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
+import { drawerLeftVariants } from "./animations/animations";
 import { categoriesData } from "../data/navData";
 import { allBrandsList, getBrandLogo, alphabetList } from "../data/brandImages";
 
@@ -168,7 +169,7 @@ export default function Navbar() {
       {/* =========================================================
           TIER 1: MAIN HEADER ROW (Search, Center Logo, Right Actions)
          ========================================================= */}
-      <div className="relative z-50 bg-white border-b border-zinc-200">
+      <div className="relative z-40 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 md:py-3.5">
           <div className="grid grid-cols-3 items-center">
             {/* Left Section: 
@@ -344,7 +345,7 @@ export default function Navbar() {
       {/* =========================================================
           TIER 2: CATEGORY NAVIGATION BAR (Categories & Brands Mega Menus)
          ========================================================= */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block relative z-20">
         <CategoryNav />
       </div>
 
@@ -677,10 +678,10 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <motion.div
             key="mobile-drawer-modal"
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            variants={drawerLeftVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="lg:hidden fixed inset-0 z-50 bg-white flex flex-col font-sans"
           >
             {/* Top Bar - Identical layout to main navbar */}
