@@ -8,6 +8,7 @@ import DiscoverVehicleParts from "../components/DiscoverVehicleParts";
 import OurCollection from "../components/OurCollection";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
+import WelcomeModal from "../components/WelcomeModal";
 
 const Home = () => {
   return (
@@ -44,6 +45,9 @@ const Home = () => {
 
       {/* Modern Luxury Footer */}
       <Footer />
+
+      {/* Interactive Welcome Modal (Renders on Top) */}
+      <WelcomeModal />
     </div>
   );
 };
